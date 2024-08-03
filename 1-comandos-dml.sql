@@ -259,3 +259,35 @@ AS LIMITE_CREDITO, VOLUMEN_DE_COMPRA AS VOLUMEN_COMPRA,
 PRIMERA_COMPRA FROM jugos_ventas.tabla_de_clientes
 WHERE DNI NOT IN (SELECT DNI FROM tb_cliente);
 
+
+
+
+
+
+
+SELECT * FROM tb_producto;
+
+UPDATE tb_producto SET PRECIO_LISTA= 5 WHERE CODIGO = '1000889';
+
+UPDATE tb_producto SET DESCRIPCION= 'Sabor de la Montaña',
+TAMANO= '1 Litro', ENVASE = 'Botella PET' WHERE 
+CODIGO = '1000889';
+
+SELECT * FROM tb_cliente;
+
+UPDATE tb_cliente SET VOLUMEN_COMPRA = VOLUMEN_COMPRA/10;
+
+SELECT * FROM tb_vendedor;
+
+SELECT * FROM jugos_ventas.tabla_de_vendedores;
+
+SELECT * FROM tb_vendedor A
+INNER JOIN
+jugos_ventas.tabla_de_vendedores B
+ON A.MATRICULA = SUBSTRING(B.MATRICULA,3,3);
+
+UPDATE tb_vendedor A
+INNER JOIN
+jugos_ventas.tabla_de_vendedores B
+ON A.MATRICULA = SUBSTRING(B.MATRICULA,3,3)
+SET A.DE_VACACIONES = B.VACACIONES;
